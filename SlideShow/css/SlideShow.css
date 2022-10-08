@@ -1,0 +1,12 @@
+ img{
+    width: 800px;
+    height: 400px;
+    margin: 60px auto;
+    display: block;
+    border: 6px solid cornflowerblue;
+}
+p{
+    text-align: center;
+    font-size: 33px;
+    color: cornflowerblue;
+}
