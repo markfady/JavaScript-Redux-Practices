@@ -1,0 +1,21 @@
+.div1 , .div2 , .div3 {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+.div1{
+    background-color: #f40;
+}
+.div2{
+    background-color: #080;
+}
+.div3{
+    background-color: #f00;
+}
+#box{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid black;
+    margin: 10px;
+}
