@@ -1,0 +1,25 @@
+body{
+    scroll-behavior: smooth;
+    height: 5000px;
+}
+h1{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+#button {
+    position: fixed;
+    right: -6%;
+    bottom: 2%;
+    font-size: 30px;
+    border: 2px solid cornflowerblue;
+    color: white;
+    background-color: cornflowerblue;
+    cursor: pointer;
+    padding:8px
+}
+#button.show{
+    right: 1%;
+}
