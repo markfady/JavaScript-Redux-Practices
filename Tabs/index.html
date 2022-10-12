@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Tabs.css"/>
+    <title>Tabs Practice</title>
+</head>
+<body>  
+    <div class="Main">  
+        <h1>Show/Hide any content when clicking on specific tab</h1>
+        <div id="Tabs">
+            <ul> 
+                <li  data-classes=".content1" class="active">Tab1</li>
+                <li data-classes=".content2">Tab2</li>
+                <li data-classes=".content3">Tab3</li>
+            </ul>
+        </div>
+        <div id="Tabs-content">
+            <p id="The_Main">Tab 1 content</p>  <!-- the first content 1 paragraph is not displayed using paragraph[0].innerHTML=v.innerHTML , 
+                                                I used another paragraph before the content 1 and it worked -->
+            <p class="content1">Tab 1 content</p>
+            <p class="content2">Tab 2 content</p>
+            <p class="content3">Tab 3 content</p>
+       
+        </div>
+    </div>
+
+    <script src="js/Tabs.js"> </script>
+</body>
+</html>
