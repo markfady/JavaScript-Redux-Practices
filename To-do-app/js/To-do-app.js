@@ -29,6 +29,14 @@ The_add.onclick=function() {
             }
         });
 
+
+
+
+
+
+
+
+
     //Implementation arrayOfTasks Function
         function arrayOfTasks(text){
             const task={
@@ -40,9 +48,7 @@ The_add.onclick=function() {
             Data.push(task);
             addTaskstoPage(Data);          //Function to Display the tasks into the page 
             //Add tasks to localstorage
-            AddTaskstoLocalStorage(Data);  //Function to save data in local storage 
-            console.log(Data);
-            console.log(JSON.stringify(Data)); 
+            addTaskstoLocalStorage(Data);  //Function to save data in local storage 
         }
 
 
@@ -53,6 +59,11 @@ The_add.onclick=function() {
                 //Create Task div inside (tasks) div
                 let div=document.createElement("div");
                 div.className="task";
+                  // Check If Task is Done
+                if (task.completed) {               //This line tell if the completed status =true will add task done class to it (will stay gray)
+                                                    //And this helped in line(28 and 100)
+                    div.className = "task done";
+                }
                 div.setAttribute("data-id",task.id);    //This attribute used to differentiate between each new div
                 //Add data inside div
                 div.appendChild(document.createTextNode(task.data)); //data from (line17)
@@ -65,7 +76,7 @@ The_add.onclick=function() {
                 div.appendChild(span);
             })
         }
-        function   AddTaskstoLocalStorage(The_Data){        //Takes Data From array and put it inside localstorage
+        function   addTaskstoLocalStorage(The_Data){        //Takes Data From array and put it inside localstorage
             window.localStorage.setItem("tasks",JSON.stringify(The_Data));
         }
 
@@ -80,7 +91,7 @@ The_add.onclick=function() {
 
         function delteTasksfromLocalStorage(taskId){
         Data=Data.filter((task)=> task.id !=taskId);
-        AddTaskstoLocalStorage(Data);       //When the user press on delete button the LocalStorage
+        addTaskstoLocalStorage(Data);       //When the user press on delete button the LocalStorage
                                             // will be updated with the new array (which is removed from div after pressing the delete button too)
         }   
         function togglestatus(taskId){
@@ -89,5 +100,6 @@ The_add.onclick=function() {
                 Data[i].completed == false ? (Data[i].completed=true)  : (Data[i].completed=false);
                 }
             }
-            AddTaskstoLocalStorage(Data); //Updating the localstorage for toggling for completed true or false.
+            addTaskstoLocalStorage(Data); //Updating the localstorage for toggling for completed true or false.
         }   
+
