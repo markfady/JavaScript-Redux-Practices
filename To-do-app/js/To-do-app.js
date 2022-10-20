@@ -23,10 +23,11 @@ The_add.onclick=function() {
                 delteTasksfromLocalStorage(e.target.parentElement.getAttribute("data-id"));
                 e.target.parentElement.remove();
             }
+            if(e.target.classList.contains("task")){  
+                togglestatus(e.target.getAttribute("data-id")) //function to update local storage
+                e.target.classList.toggle("done");    //When pressing on task will be marked as done
+            }
         });
-
-
-
 
     //Implementation arrayOfTasks Function
         function arrayOfTasks(text){
@@ -82,4 +83,11 @@ The_add.onclick=function() {
         AddTaskstoLocalStorage(Data);       //When the user press on delete button the LocalStorage
                                             // will be updated with the new array (which is removed from div after pressing the delete button too)
         }   
-        
+        function togglestatus(taskId){
+            for(let i=0; i<Data.length; i++){        //If the selected item id equals to id inside the array 
+                if(Data[i].id == taskId) {            //Toggle it's status
+                Data[i].completed == false ? (Data[i].completed=true)  : (Data[i].completed=false);
+                }
+            }
+            AddTaskstoLocalStorage(Data); //Updating the localstorage for toggling for completed true or false.
+        }   
