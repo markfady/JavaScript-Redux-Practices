@@ -1,6 +1,7 @@
 //Constants    Cause when change something with them change only in one place the(Constants)
     const WITHDRAW_MONEY="WITHDRAW_MONEY";
     const DEPOSITE_MONEY="DEPOSITE_MONEY";
+    const ADD_PRODUCT="ADD_PRODUCT";
 
 //Action Creators
 // const action={
@@ -19,8 +20,14 @@ const deposite = (amount) =>{
         payload:amount
     }
 }
+const addProduct=(product)=>{
+    return{
+        type:ADD_PRODUCT,
+        payload:product
+    }
+}
 //Reducres
-const reducer=(state=1000,action)=>{
+const bankReducer=(state=1000,action)=>{
     switch(action.type){
         case WITHDRAW_MONEY:
             return state- action.payload;  //the payload amount is passed by dispatch function 
@@ -30,8 +37,21 @@ const reducer=(state=1000,action)=>{
                 return state;
     }
 }
+const productReducer=(state=[],action)=>{
+    switch(action.type){
+        case ADD_PRODUCT:
+            return [...state ,action.payload];   //Never mutate the state direct : don't push direct to state make a new state first then push the payload you added 
+            default:
+                return state;
+    }
+}
 //Store Creation From Redux
-const store=Redux.createStore(reducer);
+const appReducer=Redux.combineReducers({
+    bank:bankReducer,
+    products:productReducer
+})
+const store=Redux.createStore(appReducer);
+
 store.subscribe(()=>{           //after each dispatch subscribe will return the new state but , get state only render one time 
     console.log("Current State", store.getState());
 })
