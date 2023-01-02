@@ -26,7 +26,7 @@ const addProduct=(product)=>{
         payload:product
     }
 }
-//Reducres
+//Reducers
 const bankReducer=(state=1000,action)=>{
     switch(action.type){
         case WITHDRAW_MONEY:
