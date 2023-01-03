@@ -69,6 +69,19 @@ const appReducer=Redux.combineReducers({
 //Store Creation From Redux , plus we put in the enhancer the MiddleWare we want to use to fetch data using asynchronous Functions
 const store=Redux.createStore(appReducer,Redux.applyMiddleware(ReduxThunk));
 
+    let valueinput=document.querySelector("#value");
+    let custom=document.querySelector("#custom");
+    let withdrawbutton=document.querySelector("#withdraw").addEventListener("click",()=>{
+        store.dispatch(withDraw(+custom.value));
+    })
+    let depositebutton=document.querySelector("#deposite").addEventListener("click",()=>{
+        store.dispatch(deposite(+custom.value));
+    })
+valueinput.innerHTML=store.getState().bank;
+
+
 store.subscribe(()=>{           //after each dispatch subscribe will return the new state but , get state only render one time 
     console.log("Current State", store.getState());
+    valueinput.innerHTML=store.getState().bank;
+
 })
