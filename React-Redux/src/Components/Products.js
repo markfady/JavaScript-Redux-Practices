@@ -1,12 +1,20 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector , useDispatch } from 'react-redux'
+import { addProduct } from '../store/actions/productActions';
 
 export default function Products() {
     const state=useSelector(state=>state.product) //product from store.js
+    const dispatch=useDispatch();
+    console.log(state)
   return (
     <> 
     <h1>Products</h1>
-    <div>{state}</div>
+    <button onClick={()=>dispatch(addProduct({id:2,title:"product2"}))}>Add Product2</button>
+    {
+        state.map((product)=>(<h2 key={product.id}>{product.title}</h2>))
+    }
+
+
     </>
   )
 }
