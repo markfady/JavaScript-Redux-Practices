@@ -9,12 +9,14 @@ export default function Products() {
       useEffect(()=>{
       dispatch(fetchProduct())
     },[])
+
   return (
     <> 
     <h1>Products</h1>
     <button onClick={()=>dispatch(addProduct({id:2,title:"product2"}))}>Add Product2</button> 
     {
-        state.map((product)=>(<h2 key={product.id}>{product.title}</h2>))
+      
+        state.map((product,index)=>(<h2 key={index}>{product.title}</h2>))
     }
     </>
   )

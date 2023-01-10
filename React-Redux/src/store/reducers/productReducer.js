@@ -1,6 +1,6 @@
 import { ADD_PRODUCT , GET_PRODUCT } from "../actions/productActions"
 
-export const productReducer=(state={},action)=>{
+export const productReducer=(state=[],action)=>{
 
     switch(action.type){
         case ADD_PRODUCT:
