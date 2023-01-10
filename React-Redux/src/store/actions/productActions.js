@@ -16,3 +16,10 @@ export const getProduct=(product)=>{
         payload:product
     }
 }
+export const fetchProduct=()=>{  //we use redux thunk for this action cause it returns function not object
+    return async(dispatch)=>{
+        const data= await fetch('https://fakestoreapi.com/products');
+        const result=await data.json()
+        dispatch(getProduct(result));
+    }
+}
