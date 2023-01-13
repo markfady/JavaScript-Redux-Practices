@@ -12,4 +12,4 @@ export const bankSlice=createSlice({
     }
 })
 export const{withDraw,deposite}=bankSlice.actions;
-export default bankSlice.reducer;
+export default bankSlice.reducer;   //This export to use it inside store
